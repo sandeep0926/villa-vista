@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 212 56% 28%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 212 56% 28%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 212 56% 28%;
+
+    --primary: 212 56% 28%;
+    --primary-foreground: 0 0% 100%;
+    
+    --primary-light: 212 56% 85%;
+    --primary-lighter: 212 56% 95%;
+
+    --secondary: 212 20% 96%;
+    --secondary-foreground: 212 56% 28%;
+
+    --muted: 220 13% 95%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 35 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 212 56% 28%;
+
+    --radius: 0.75rem;
+
+    --gradient-hero: linear-gradient(135deg, hsl(212 56% 28% / 0.95), hsl(212 56% 20% / 0.95));
+    --shadow-soft: 0 4px 24px -2px hsl(212 56% 28% / 0.08);
+    --shadow-medium: 0 8px 32px -4px hsl(212 56% 28% / 0.12);
+    --shadow-strong: 0 16px 48px -8px hsl(212 56% 28% / 0.16);
+  }
+
+  .dark {
+    --background: 212 56% 5%;
+    --foreground: 0 0% 98%;
+
+    --card: 212 56% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 212 56% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 212 56% 65%;
+    --primary-foreground: 212 56% 10%;
+
+    --secondary: 212 30% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 212 30% 15%;
+    --muted-foreground: 220 9% 65%;
+
+    --accent: 35 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 212 30% 20%;
+    --input: 212 30% 20%;
+    --ring: 212 56% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+}
+
+@layer utilities {
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+}
