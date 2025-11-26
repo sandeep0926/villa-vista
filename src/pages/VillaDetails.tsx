@@ -77,131 +77,127 @@ const VillaDetails = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <div className="pt-24 pb-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="mb-6">
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-                  {villa.title}
-                </h1>
-                <div className="flex flex-wrap items-center gap-4 text-muted-foreground">
-                  <div className="flex items-center gap-1">
-                    <Star className="h-5 w-5 fill-accent text-accent" />
-                    <span className="font-semibold text-foreground">{villa.rating}</span>
-                    <span>({villa.reviews} reviews)</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <MapPin className="h-5 w-5" />
-                    <span>{villa.location}</span>
-                  </div>
-                </div>
-              </div>
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded-full"
-                onClick={() => setIsLiked(!isLiked)}
-              >
-                <Heart className={`h-5 w-5 ${isLiked ? 'fill-red-500 text-red-500' : ''}`} />
-              </Button>
-            </div>
-          </div>
-
-          {/* Image Gallery */}
-          <div className="grid lg:grid-cols-2 gap-4 mb-12">
-            {/* Main Image with Carousel */}
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden group">
-              <img
-                src={villa.images[currentImageIndex]}
-                alt={villa.title}
-                className="w-full h-full object-cover"
-              />
-              <Button
-                variant="secondary"
-                size="icon"
-                className="absolute left-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity"
-                onClick={prevImage}
-              >
-                <ChevronLeft className="h-6 w-6" />
-              </Button>
-              <Button
-                variant="secondary"
-                size="icon"
-                className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity"
-                onClick={nextImage}
-              >
-                <ChevronRight className="h-6 w-6" />
-              </Button>
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                {villa.images.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      index === currentImageIndex ? 'bg-white w-8' : 'bg-white/50'
-                    }`}
-                    onClick={() => setCurrentImageIndex(index)}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Thumbnail Grid */}
-            <div className="grid grid-cols-2 gap-4">
-              {villa.images.slice(1, 5).map((image, index) => (
-                <div
+      <div className="pt-20 pb-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          {/* Hero Image Section */}
+          <div className="relative h-[500px] rounded-3xl overflow-hidden mb-8 group">
+            <img
+              src={villa.images[currentImageIndex]}
+              alt={villa.title}
+              className="w-full h-full object-cover"
+            />
+            <Button
+              variant="secondary"
+              size="icon"
+              className="absolute left-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity rounded-full"
+              onClick={prevImage}
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </Button>
+            <Button
+              variant="secondary"
+              size="icon"
+              className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity rounded-full"
+              onClick={nextImage}
+            >
+              <ChevronRight className="h-6 w-6" />
+            </Button>
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+              {villa.images.map((_, index) => (
+                <button
                   key={index}
-                  className="aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
-                  onClick={() => setCurrentImageIndex(index + 1)}
-                >
-                  <img
-                    src={image}
-                    alt={`Villa view ${index + 2}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index === currentImageIndex ? 'bg-white w-8' : 'bg-white/50'
+                  }`}
+                  onClick={() => setCurrentImageIndex(index)}
+                />
               ))}
             </div>
           </div>
 
+          {/* Thumbnail Gallery */}
+          <div className="grid grid-cols-4 gap-4 mb-12">
+            {villa.images.map((image, index) => (
+              <div
+                key={index}
+                className={`aspect-video rounded-xl overflow-hidden cursor-pointer border-2 transition-all ${
+                  index === currentImageIndex ? 'border-primary' : 'border-transparent hover:border-border'
+                }`}
+                onClick={() => setCurrentImageIndex(index)}
+              >
+                <img
+                  src={image}
+                  alt={`View ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Main Content */}
-            <div className="lg:col-span-2 space-y-10">
-              {/* Villa Info */}
-              <div className="flex flex-wrap gap-6 pb-8 border-b border-border">
-                <div className="flex items-center gap-2">
-                  <Users className="h-5 w-5 text-muted-foreground" />
-                  <span className="font-medium">{villa.guests} Guests</span>
+            <div className="lg:col-span-2 space-y-8">
+              {/* Header with Title and Wishlist */}
+              <div className="flex items-start justify-between">
+                <div>
+                  <h1 className="text-4xl font-bold text-foreground mb-3">
+                    {villa.title}
+                  </h1>
+                  <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-4">
+                    <div className="flex items-center gap-1">
+                      <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
+                      <span className="font-semibold text-foreground">{villa.rating}</span>
+                      <span>({villa.reviews} reviews)</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <MapPin className="h-5 w-5" />
+                      <span>{villa.location}</span>
+                    </div>
+                  </div>
+                  {/* Villa Quick Info */}
+                  <div className="flex flex-wrap gap-6">
+                    <div className="flex items-center gap-2">
+                      <Users className="h-5 w-5 text-primary" />
+                      <span className="font-medium">{villa.guests} Guests</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Bed className="h-5 w-5 text-primary" />
+                      <span className="font-medium">{villa.bedrooms} Bedrooms</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Bath className="h-5 w-5 text-primary" />
+                      <span className="font-medium">{villa.bathrooms} Bathrooms</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Bed className="h-5 w-5 text-muted-foreground" />
-                  <span className="font-medium">{villa.bedrooms} Bedrooms</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Bath className="h-5 w-5 text-muted-foreground" />
-                  <span className="font-medium">{villa.bathrooms} Bathrooms</span>
-                </div>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full flex-shrink-0"
+                  onClick={() => setIsLiked(!isLiked)}
+                >
+                  <Heart className={`h-5 w-5 ${isLiked ? 'fill-red-500 text-red-500' : ''}`} />
+                </Button>
               </div>
 
               {/* Description */}
-              <div>
+              <div className="bg-secondary/50 p-6 rounded-2xl border border-border">
                 <h2 className="text-2xl font-bold text-foreground mb-4">About This Villa</h2>
-                <p className="text-muted-foreground leading-relaxed">{villa.description}</p>
+                <p className="text-muted-foreground leading-relaxed text-lg">{villa.description}</p>
               </div>
 
               {/* Amenities */}
               <div>
-                <h2 className="text-2xl font-bold text-foreground mb-6">Amenities</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-6">Villa Amenities</h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {villa.amenities.map((amenity, index) => {
                     const Icon = amenity.icon;
                     return (
-                      <div key={index} className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                          <Icon className="h-5 w-5 text-primary" />
+                      <div key={index} className="flex items-center gap-4 p-4 bg-card border border-border rounded-xl hover:shadow-md transition-shadow">
+                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                          <Icon className="h-6 w-6 text-primary" />
                         </div>
-                        <span className="font-medium text-foreground">{amenity.label}</span>
+                        <span className="font-medium text-foreground text-lg">{amenity.label}</span>
                       </div>
                     );
                   })}
