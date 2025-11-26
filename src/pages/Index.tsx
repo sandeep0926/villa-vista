@@ -198,7 +198,7 @@ const Index = () => {
       name: "Emma Rodriguez",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200",
       rating: 5,
-      text: "Lost Traveller Villas made our anniversary trip magical. The backwater villa in Kerala was breathtaking, and the concierge service was outstanding.",
+      text: "Trevos made our anniversary trip magical. The backwater villa in Kerala was breathtaking, and the concierge service was outstanding.",
       location: "Bangalore, Karnataka"
     }
   ];

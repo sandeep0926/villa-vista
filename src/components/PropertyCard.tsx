@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, MapPin, Users, Bed } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface PropertyCardProps {
   image: string;
@@ -25,8 +26,13 @@ const PropertyCard = ({
   bedrooms,
   featured 
 }: PropertyCardProps) => {
+  const navigate = useNavigate();
+
   return (
-    <Card className="group overflow-hidden hover:shadow-medium transition-all duration-300 cursor-pointer">
+    <Card 
+      className="group overflow-hidden hover:shadow-medium transition-all duration-300 cursor-pointer"
+      onClick={() => navigate('/villa/1')}
+    >
       <div className="relative overflow-hidden aspect-[4/3]">
         <img 
           src={image} 

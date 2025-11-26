@@ -14,7 +14,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/">
-              <img src={logo} alt="Lost Traveller Villas" className="h-12 w-auto" />
+              <img src={logo} alt="Trevos" className="h-12 w-auto" />
             </Link>
           </div>
 
@@ -25,6 +25,9 @@ const Navbar = () => {
             </Link>
             <Link to="/destinations" className="text-white hover:text-white/80 transition-colors font-medium">
               Destinations
+            </Link>
+            <Link to="/map" className="text-white hover:text-white/80 transition-colors font-medium">
+              Map View
             </Link>
             <div className="relative group">
               <button className="text-white hover:text-white/80 transition-colors font-medium flex items-center gap-1">
