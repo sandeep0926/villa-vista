@@ -16,7 +16,7 @@ const PartnerSection = () => {
             </h2>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              With Lost Traveller Villas, your second home becomes a curated escape expertly managed, 
+              With Trevos, your second home becomes a curated escape expertly managed, 
               beautifully maintained, & thoughtfully shared.
             </p>
             

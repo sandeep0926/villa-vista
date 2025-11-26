@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold mb-6">Lost Traveller Villas</h3>
+            <h3 className="text-2xl font-bold mb-6">Trevos</h3>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">
               Your trusted partner for premium villa rentals and unforgettable experiences across India.
             </p>
@@ -56,7 +56,7 @@ const Footer = () => {
             <div className="space-y-4 mb-6">
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 flex-shrink-0" />
-                <span className="text-primary-foreground/80">info@losttravellervillas.com</span>
+                <span className="text-primary-foreground/80">info@trevos.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="h-5 w-5 flex-shrink-0" />
@@ -83,7 +83,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/20 pt-8 text-center text-primary-foreground/60">
-          <p>&copy; 2025 Lost Traveller Villas. All rights reserved.</p>
+          <p>&copy; 2025 Trevos. All rights reserved.</p>
         </div>
       </div>
     </footer>
